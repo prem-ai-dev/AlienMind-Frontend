@@ -1,16 +1,49 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 👽 AlienMind — Frontend
 
-Currently, two official plugins are available:
+**React + Vite client for AlienMind** — the platform layer of the Alien Ecosystem.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![React](https://img.shields.io/badge/React-Vite-61DAFB) ![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8) ![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey)
 
-## React Compiler
+[Live Demo](#) · [Backend Repo](https://github.com/prem-ai-dev/AlienMind) · [Architecture Deep-Dive](https://github.com/prem-ai-dev/AlienMind/blob/main/ARCHITECTURE.md)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![AlienMind Dashboard](./docs/screenshot-dashboard.png)
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## What This Is
+
+This is the client for **AlienMind**, the platform layer of the Alien Ecosystem — a set of independently deployable, identity-linked services for how dev teams actually build software. This repo renders three distinct experiences from one codebase: Admin, Manager, and Member — each with its own dashboards, permitted actions, and data scope, enforced by the backend, not just hidden in the UI.
+
+Backend repo: [AlienMind](https://github.com/prem-ai-dev/AlienMind)
+
+## Features
+
+- **Role-scoped layouts** — separate Admin, Manager, and Member page trees, each built as a self-contained view fetching its own data
+- **Workspace & project management** — teams, projects, sprints, and tasks with status tracking and inline editing
+- **Ownership-aware UI** — a Manager sees full controls on projects/teams they own, read-only views on ones they only touch through another role
+- **Session handling** — global axios interceptor for auth headers, automatic session-expired detection and redirect
+- **Aggregated dashboards** — role-specific stats (workspace-wide for Admin, scoped-to-owned for Manager, personal for Member) pulled from dedicated backend endpoints
+
+## Tech Stack
+
+React · Vite · Tailwind CSS v4 · Axios
+
+## Quickstart
+
+```bash
+git clone https://github.com/prem-ai-dev/AlienMind-Frontend.git
+cd AlienMind-Frontend
+npm install
+cp .env.example .env   # set VITE_API_BASE_URL to your backend
+npm run dev
+```
+
+Requires the [AlienMind backend](https://github.com/prem-ai-dev/AlienMind) running locally or deployed.
+
+## License
+
+All rights reserved — publicly viewable for portfolio and evaluation purposes. See [LICENSE](./LICENSE).
