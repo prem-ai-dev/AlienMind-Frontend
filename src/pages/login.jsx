@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import api from "../lib/api";
 
 export default function Login() {
+  useEffect(() => {
+  localStorage.removeItem("long_token");
+  localStorage.removeItem("temp_token");
+}, []);
+
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
